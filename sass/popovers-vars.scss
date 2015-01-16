@@ -1,0 +1,45 @@
+// Please try to maintain the same code style as outlined here:
+// https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
+
+// Global
+$bacon-padding-y:         $cushion-y-md !default;
+$bacon-padding-x:         $cushion-x-md !default;
+
+$bacon-margin-y:          $cushion-y-lg !default;
+
+$bacon-border-radius:     $border-radius-base !default;
+
+// Base
+$bacon-base-bg:           $bg-light !default;
+$bacon-base-border:       $border-base !default;
+$bacon-base-text:         $text-base !default;
+
+// Primary
+$bacon-primary-bg:        $state-primary-bg !default;
+$bacon-primary-border:    $state-primary-border !default;
+$bacon-primary-text:      $state-primary-text !default;
+
+// Secondary
+$bacon-secondary-bg:      $state-secondary-bg !default;
+$bacon-secondary-border:  $state-secondary-border !default;
+$bacon-secondary-text:    $state-secondary-text !default;
+
+// Error
+$bacon-error-bg:          $state-error-bg !default;
+$bacon-error-border:      $state-error-border !default;
+$bacon-error-text:        $state-error-text !default;
+
+// Warning
+$bacon-warning-bg:        $state-warning-bg !default;
+$bacon-warning-border:    $state-warning-border !default;
+$bacon-warning-text:      $state-warning-text !default;
+
+// Success
+$bacon-success-bg:        $state-success-bg !default;
+$bacon-success-border:    $state-success-border !default;
+$bacon-success-text:      $state-success-text !default;
+
+// Info
+$bacon-info-bg:           $state-info-bg !default;
+$bacon-info-border:       $state-info-border !default;
+$bacon-info-text:         $state-info-text !default;

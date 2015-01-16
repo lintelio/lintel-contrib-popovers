@@ -1,0 +1,32 @@
+{
+  "name": "lintel-contrib-popovers",
+  "version": "0.1.0",
+  "description": "Popovers for lintel.",
+  "homepage": "https://github.com/lintelio/lintel-contrib-popovers",
+  "repository": "https://github.com/lintelio/lintel-contrib-popovers.git",
+  "keywords": [
+    "lintelmodule",
+    "lintel"
+  ],
+  "main": [
+    "sass/popovers.sass",
+    "dist/popovers.min.css",
+    "dist/popovers.min.js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lintel": "~0.1.6"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "/.*",
+    "sass/lintel-core-loader.scss"
+  ],
+  "authors": [
+    {
+      "name": "Marius Craciunoiu",
+      "email": "",
+      "url": "mariusc23.com"
+    }
+  ]
+}

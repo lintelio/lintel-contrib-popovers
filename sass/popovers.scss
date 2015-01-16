@@ -1,0 +1,51 @@
+// Please try to maintain the same code style as outlined here:
+// https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
+
+@import 'popovers-vars';
+@import 'popovers-functions';
+@import 'popovers-mixins';
+
+
+// Base
+// ----
+.bacon {
+  background-color: $bacon-base-bg;
+  border: 1px solid $bacon-base-border;
+  border-radius: $bacon-border-radius;
+  color: $bacon-base-text;
+  padding: $bacon-padding-y $bacon-padding-x;
+  margin-bottom: $bacon-margin-y;
+}
+
+
+// States
+// ------
+// Primary
+.bacon-primary {
+  @include make-bacon($bg: $bacon-primary-bg, $border: $bacon-primary-border, $text: $bacon-primary-text);
+}
+
+// Secondary
+.bacon-secondary {
+  @include make-bacon($bg: $bacon-secondary-bg, $border: $bacon-secondary-border, $text: $bacon-secondary-text);
+}
+
+// Error
+.bacon-error {
+  @include make-bacon($bg: $bacon-error-bg, $border: $bacon-error-border, $text: $bacon-error-text);
+}
+
+// Warning
+.bacon-warning {
+  @include make-bacon($bg: $bacon-warning-bg, $border: $bacon-warning-border, $text: $bacon-warning-text);
+}
+
+// Success
+.bacon-success {
+  @include make-bacon($bg: $bacon-success-bg, $border: $bacon-success-border, $text: $bacon-success-text);
+}
+
+// Info
+.bacon-info {
+  @include make-bacon($bg: $bacon-info-bg, $border: $bacon-info-border, $text: $bacon-info-text);
+}
