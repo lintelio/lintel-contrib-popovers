@@ -15,9 +15,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "lintel": "~0.1.6"
+    "lintel": "~0.1.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lintel-contrib-buttons": "~0.1.2"
+  },
   "ignore": [
     "/.*",
     "sass/lintel-core-loader.scss"

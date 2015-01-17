@@ -2,44 +2,85 @@
 // https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
 
 // Global
-$bacon-padding-y:         $cushion-y-md !default;
-$bacon-padding-x:         $cushion-x-md !default;
+$popover-include-states:    true !default;
 
-$bacon-margin-y:          $cushion-y-lg !default;
+$popover-padding-y:         $cushion-y-md !default;
+$popover-padding-x:         $cushion-x-md !default;
 
-$bacon-border-radius:     $border-radius-base !default;
+$popover-animate:           $animate-fast !default;
+$popover-arrow-width:       15px !default;
+$popover-bg:                #fff !default;
+$popover-border:            $border-dark !default;
+$popover-border-radius:     $border-radius-base !default;
+$popover-box-shadow:        $box-shadow-light !default;
+$popover-font-size:         $font-size-xs !default;
+$popover-text:              $text-base !default;
+$popover-z-index:           $z-index-2xl !default;
 
-// Base
-$bacon-base-bg:           $bg-light !default;
-$bacon-base-border:       $border-base !default;
-$bacon-base-text:         $text-base !default;
+// Header
+$popover-header-padding-y:  $popover-padding-y !default;
+$popover-header-padding-x:  $popover-padding-x !default;
+
+$popover-header-bg:         $popover-bg !default;
+$popover-header-border:     $border-base !default;
+$popover-header-text:       $popover-text !default;
+
+// > Title
+$popover-title-font-size:   $font-size-h4 !default;
+
+// > Close
+$popover-close-opacity:     0.4 !default;
+$popover-close-padding-y:   0 !default;
+$popover-close-padding-x:   0 !default;
+
+// Footer
+$popover-footer-padding-y:  $popover-padding-y !default;
+$popover-footer-padding-x:  $popover-padding-x !default;
+
+$popover-footer-bg:         $bg-light !default;
+$popover-footer-border:     $popover-header-border !default;
+$popover-footer-text:       $popover-text !default;
+
+// Body
+$popover-body-padding-y:    $popover-padding-y !default;
+$popover-body-padding-x:    $popover-padding-x !default;
+
+$popover-body-bg:           null !default;
+$popover-body-text:         null !default;
 
 // Primary
-$bacon-primary-bg:        $state-primary-bg !default;
-$bacon-primary-border:    $state-primary-border !default;
-$bacon-primary-text:      $state-primary-text !default;
+$popover-primary-bg:        null !default;
+$popover-primary-border:    null !default;
+$popover-primary-text:      $state-primary-text !default;
 
 // Secondary
-$bacon-secondary-bg:      $state-secondary-bg !default;
-$bacon-secondary-border:  $state-secondary-border !default;
-$bacon-secondary-text:    $state-secondary-text !default;
+$popover-secondary-bg:      null !default;
+$popover-secondary-border:  null !default;
+$popover-secondary-text:    $state-secondary-text !default;
 
 // Error
-$bacon-error-bg:          $state-error-bg !default;
-$bacon-error-border:      $state-error-border !default;
-$bacon-error-text:        $state-error-text !default;
+$popover-error-bg:          null !default;
+$popover-error-border:      null !default;
+$popover-error-text:        $state-error-text !default;
 
 // Warning
-$bacon-warning-bg:        $state-warning-bg !default;
-$bacon-warning-border:    $state-warning-border !default;
-$bacon-warning-text:      $state-warning-text !default;
+$popover-warning-bg:        null !default;
+$popover-warning-border:    null !default;
+$popover-warning-text:      $state-warning-text !default;
 
 // Success
-$bacon-success-bg:        $state-success-bg !default;
-$bacon-success-border:    $state-success-border !default;
-$bacon-success-text:      $state-success-text !default;
+$popover-success-bg:        null !default;
+$popover-success-border:    null !default;
+$popover-success-text:      $state-success-text !default;
 
 // Info
-$bacon-info-bg:           $state-info-bg !default;
-$bacon-info-border:       $state-info-border !default;
-$bacon-info-text:         $state-info-text !default;
+$popover-info-bg:           null !default;
+$popover-info-border:       null !default;
+$popover-info-text:         $state-info-text !default;
+
+// Sizes
+$popover-xs-min:            200px !default;
+$popover-sm-min:            250px !default;
+$popover-md-min:            300px !default;
+$popover-lg-min:            350px !default;
+$popover-xl-min:            450px !default;

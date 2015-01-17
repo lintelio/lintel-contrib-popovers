@@ -1,51 +1,340 @@
 // Please try to maintain the same code style as outlined here:
 // https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
 
-@import 'popovers-vars';
 @import 'popovers-functions';
+@import 'popovers-vars';
 @import 'popovers-mixins';
 
 
 // Base
 // ----
-.bacon {
-  background-color: $bacon-base-bg;
-  border: 1px solid $bacon-base-border;
-  border-radius: $bacon-border-radius;
-  color: $bacon-base-text;
-  padding: $bacon-padding-y $bacon-padding-x;
-  margin-bottom: $bacon-margin-y;
+.popover {
+  opacity: 0;
+  position: absolute;
+  min-width: $popover-md-min;
+  visibility: hidden;
+  transition: opacity $popover-animate ease-in-out;
+  z-index: $popover-z-index;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
 }
+
+.popover-content {
+  background: $popover-bg;
+  border: 1px solid $popover-border;
+  border-radius: $popover-border-radius;
+  box-shadow: $popover-box-shadow;
+  color: $popover-text;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+
+// Mobile
+// ------
+@include mq($max: $screen-xs-max) {
+  .popover {
+    min-width: 0 !important;
+    left: $cushion-base !important;
+    right: $cushion-base !important;
+  }
+
+  .popover-content.popover-content.popover-content {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .popover-content {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+
+// Header
+// ------
+.popover-header {
+  @include clearfix;
+  @if $popover-header-bg != $popover-bg     { background: $popover-header-bg; }
+  @if $popover-header-text != $popover-text { color: $popover-header-text; }
+  border-bottom: 1px solid $popover-header-border;
+  border-top-left-radius: $popover-border-radius;
+  border-top-right-radius: $popover-border-radius;
+  padding: $popover-header-padding-y $popover-header-padding-x;
+}
+
+.popover-header-actions {
+  display: inline-block;
+  margin-right: -100%;
+  text-align: right;
+  width: 100%;
+}
+
+.popover-title {
+  display: inline-block;
+  font-size: $popover-title-font-size;
+  margin: 0;
+  vertical-align: middle; // line up with .btns
+
+  > a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.popover-close {
+  background: none;
+  border: 0;
+  font-size: $popover-title-font-size;
+  line-height: 1;
+  float: right;
+  opacity: $popover-close-opacity;
+  margin: 0;
+  padding: $popover-close-padding-y $popover-close-padding-x;
+  transition: opacity $animate-fast ease-in-out;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  .popover-header-actions & {
+    display: inline-block;
+    float: none;
+    margin-left: $cushion-x-md;
+  }
+}
+
+
+// Body
+// ----
+.popover-body {
+  @if $popover-body-bg != $popover-bg     { background: $popover-body-bg; }
+  @if $popover-body-text != $popover-text { color: $popover-body-text; }
+  padding: $popover-body-padding-y $popover-body-padding-x;
+}
+
+
+// Footer
+// ------
+.popover-footer {
+  @include clearfix;
+  @if $popover-footer-bg != $popover-bg     { background: $popover-footer-bg; }
+  @if $popover-footer-text != $popover-text { color: $popover-footer-text; }
+  border-top: 1px solid $popover-footer-border;
+  border-bottom-left-radius: $popover-border-radius;
+  border-bottom-right-radius: $popover-border-radius;
+  padding: $popover-footer-padding-y $popover-footer-padding-x;
+}
+
+.popover-footer-actions{
+  @extend .popover-header-actions;
+}
+
+
+// Placement
+// ---------
+.popover-top > .popover-content,
+.popover-bottom > .popover-content {
+  &:before,
+  &:after {
+    left: 50%;
+    margin-left: -($popover-arrow-width / 2);
+  }
+}
+
+.popover-top > .popover-content {
+  top: -($popover-arrow-width / 2);
+
+  &:before,
+  &:after {
+    top: 100%;
+  }
+
+  &:before {
+    margin-top: 1px;
+    @include triangle(
+      $direction: 'down',
+      $size: $popover-arrow-width,
+      $color: $popover-border
+    );
+  }
+
+  &:after {
+    @include triangle(
+      $direction: 'down',
+      $size: $popover-arrow-width,
+      $color: $popover-footer-bg
+    );
+  }
+}
+
+.popover-bottom > .popover-content {
+  bottom: -($popover-arrow-width / 2);
+
+  &:before,
+  &:after {
+    bottom: 100%;
+  }
+
+  &:before {
+    margin-bottom: 1px;
+    @include triangle(
+      $direction: 'up',
+      $size: $popover-arrow-width,
+      $color: $popover-border
+    );
+  }
+
+  &:after {
+    @include triangle(
+      $direction: 'up',
+      $size: $popover-arrow-width,
+      $color: $popover-bg
+    );
+  }
+}
+
+.popover-left > .popover-content,
+.popover-right > .popover-content {
+
+  &:before,
+  &:after {
+    top: 50%;
+    margin-top: -($popover-arrow-width / 2);
+  }
+}
+
+.popover-left > .popover-content {
+  left: -($popover-arrow-width / 2);
+
+  &:before,
+  &:after {
+    left: 100%;
+  }
+
+  &:before {
+    margin-left: 1px;
+    @include triangle(
+      $direction: 'right',
+      $size: $popover-arrow-width,
+      $color: $popover-border
+    );
+  }
+
+  &:after {
+    @include triangle(
+      $direction: 'right',
+      $size: $popover-arrow-width,
+      $color: $popover-bg
+    );
+  }
+}
+
+.popover-right > .popover-content {
+  right: -($popover-arrow-width / 2);
+
+  &:before,
+  &:after {
+    right: 100%;
+  }
+
+  &:before {
+    margin-right: 1px;
+    @include triangle(
+      $direction: 'left',
+      $size: $popover-arrow-width,
+      $color: $popover-border
+    );
+  }
+
+  &:after {
+    @include triangle(
+      $direction: 'left',
+      $size: $popover-arrow-width,
+      $color: $popover-bg
+    );
+  }
+}
+
 
 
 // States
 // ------
-// Primary
-.bacon-primary {
-  @include make-bacon($bg: $bacon-primary-bg, $border: $bacon-primary-border, $text: $bacon-primary-text);
+@if $popover-include-states == true {
+  // Primary
+  .popover-primary {
+    @include popover-state(
+      $bg: $popover-primary-bg,
+      $border: $popover-primary-border,
+      $text: $popover-primary-text)
+    ;
+  }
+
+  // Secondary
+  .popover-secondary {
+    @include popover-state(
+      $bg: $popover-secondary-bg,
+      $border: $popover-secondary-border,
+      $text: $popover-secondary-text
+    )
+  }
+
+  // Error
+  .popover-error {
+    @include popover-state(
+      $bg: $popover-error-bg,
+      $border: $popover-error-border,
+      $text: $popover-error-text
+    )
+  }
+
+  // Warning
+  .popover-warning {
+    @include popover-state(
+      $bg: $popover-warning-bg,
+      $border: $popover-warning-border,
+      $text: $popover-warning-text
+    )
+  }
+
+  // Success
+  .popover-success {
+    @include popover-state(
+      $bg: $popover-success-bg,
+      $border: $popover-success-border,
+      $text: $popover-success-text
+    )
+  }
+
+  // Info
+  .popover-info {
+    @include popover-state(
+      $bg: $popover-info-bg,
+      $border: $popover-info-border,
+      $text: $popover-info-text
+    )
+  }
 }
 
-// Secondary
-.bacon-secondary {
-  @include make-bacon($bg: $bacon-secondary-bg, $border: $bacon-secondary-border, $text: $bacon-secondary-text);
-}
 
-// Error
-.bacon-error {
-  @include make-bacon($bg: $bacon-error-bg, $border: $bacon-error-border, $text: $bacon-error-text);
-}
-
-// Warning
-.bacon-warning {
-  @include make-bacon($bg: $bacon-warning-bg, $border: $bacon-warning-border, $text: $bacon-warning-text);
-}
-
-// Success
-.bacon-success {
-  @include make-bacon($bg: $bacon-success-bg, $border: $bacon-success-border, $text: $bacon-success-text);
-}
-
-// Info
-.bacon-info {
-  @include make-bacon($bg: $bacon-info-bg, $border: $bacon-info-border, $text: $bacon-info-text);
-}
+// Sizes
+// -----
+.popover-xs { min-width: $popover-xs-min; }
+.popover-sm { min-width: $popover-sm-min; }
+.popover-lg { min-width: $popover-lg-min; }
+.popover-xl { min-width: $popover-xl-min; }

@@ -2,36 +2,574 @@
 <html>
   <head>
     <link rel="stylesheet" href="../../bower_components/lintel/dist/lintel.css">
+    <link rel="stylesheet" href="../../bower_components/lintel-contrib-buttons/dist/buttons.css">
     <link rel="stylesheet" href="../../dist/popovers.css">
+    <style>
+      @media screen and (min-width: 480px) {
+        .popover {
+          display: inline-block;
+          margin: 0 20px 20px 0;
+          position: relative;
+        }
+      }
+    </style>
   </head>
   <body class="pad">
 
-    <div class="bacon">
-      Does anybody else feel jealous and aroused and worried?
+    <div class="popover open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Title</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-primary">
-      You're going to do his laundry?
+    <div class="popover open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <div class="popover-header-actions">
+            <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div><!--
+          --><h1 class="popover-title">
+            <a href="#" class="popover-title-link">Title</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="popover-footer-actions">
+            <div class="btn-group">
+              <button class="btn" type="button">Cancel</button>
+              <button class="btn btn-primary" type="button">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-secondary">
-      You're going back for the Countess, aren't you?
+    <br><br>
+
+    <!-- Placement -->
+    <!-- > Top -->
+    <div class="popover popover-top open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Top</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-error">
-      A sexy mistake.
+    <!-- > Bottom -->
+    <div class="popover popover-bottom open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Bottom</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-warning">
-      Five hours? Aw, man! Couldn't you just get me the death penalty?
+    <!-- > Left -->
+    <div class="popover popover-left open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Left</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-success">
-      Hi, I'm a naughty nurse, and I really need someone to talk to. $9.95 a minute.
+    <!-- > Right -->
+    <div class="popover popover-right open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Right</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="bacon bacon-info">
-      Fry, we have a crate to deliver.
+
+    <br><br>
+
+    <!-- STATES -->
+    <!-- > Primary -->
+    <div class="popover popover-top popover-primary open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Primary</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > Secondary -->
+    <div class="popover popover-top popover-secondary open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Secondary</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > Error -->
+    <div class="popover popover-top popover-error open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Error</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > Warning -->
+    <div class="popover popover-top popover-warning open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Warning</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > Success -->
+    <div class="popover popover-top popover-success open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Success</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > Info -->
+    <div class="popover popover-top popover-info open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Info</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- SIZES -->
+    <!-- > XS -->
+    <div class="popover popover-xs open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">XS</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > SM -->
+    <div class="popover popover-sm open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">SM</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > MD -->
+    <div class="popover open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">MD</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > LG -->
+    <div class="popover popover-lg open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">LG</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- > XL -->
+    <div class="popover popover-xl open">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">XL</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>

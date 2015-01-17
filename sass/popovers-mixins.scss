@@ -1,8 +1,91 @@
 // Please try to maintain the same code style as outlined here:
 // https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
 
-@mixin make-bacon($bg, $border, $text) {
-  background-color: $bg;
-  border-color: $border;
-  color: $text;
+@mixin popover-arrow-top($bg, $border) {
+  @if $bg or $border {
+    &.popover-top > .popover-content {
+      @if $border {
+        &:before {
+          border-top-color: $border;
+        }
+      }
+
+      @if $bg {
+        &:after {
+          border-top-color: $bg;
+        }
+      }
+    }
+  }
+}
+
+@mixin popover-arrow-right($bg, $border) {
+  @if $bg or $border {
+    &.popover-right > .popover-content {
+      @if $border {
+        &:before {
+          border-right-color: $border;
+        }
+      }
+
+      @if $bg {
+        &:after {
+          border-right-color: $bg;
+        }
+      }
+    }
+  }
+}
+
+@mixin popover-arrow-bottom($bg, $border) {
+  @if $bg or $border {
+    &.popover-bottom > .popover-content {
+      @if $border {
+        &:before {
+          border-bottom-color: $border;
+        }
+      }
+
+      @if $bg {
+        &:after {
+          border-bottom-color: $bg;
+        }
+      }
+    }
+  }
+}
+
+@mixin popover-arrow-left($bg, $border) {
+  @if $bg or $border {
+    &.popover-left > .popover-content {
+      @if $border {
+        &:before {
+          border-left-color: $border;
+        }
+      }
+
+      @if $bg {
+        &:after {
+          border-left-color: $bg;
+        }
+      }
+    }
+  }
+}
+
+@mixin popover-arrows($bg, $border) {
+  @include popover-arrow-top($bg, $border);
+  @include popover-arrow-right($bg, $border);
+  @include popover-arrow-bottom($bg, $border);
+  @include popover-arrow-left($bg, $border);
+}
+
+@mixin popover-state($bg, $border, $text) {
+  .popover-header {
+    @if $bg     { background: $bg; }
+    @if $border { border-color: $border; }
+    @if $text   { color: $text; }
+  }
+
+  @include popover-arrows($bg, $border);
 }

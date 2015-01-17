@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "lintel": "~0.1.6"
+    "lintel": "~0.1.7"
   },
   "devDependencies": {
     "gm": "^1.17.0",
@@ -38,6 +38,7 @@
     "grunt-notify": "^0.4.1",
     "grunt-sass": "^0.17.0",
     "grunt-webshot": "^0.3.0",
+    "lintel-contrib-buttons": "^0.1.2",
     "load-grunt-tasks": "^1.0.0"
   },
   "ignore": [
