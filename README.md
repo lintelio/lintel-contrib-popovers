@@ -114,6 +114,35 @@ Creates a new popover state.
 
 ## JavaScript
 
+### Options
+
+Name      | Type                           | Default             | Description
+--------- | ------------------------------ | ------------------- | -----------
+onShow    | function                       |                     | Callback function to execute every time popover is shown.
+onHide    | function                       |                     | Callback function to execute every time popover is hidden.
+esc       | boolean                        | true                | Close popover on escape key.
+show      | boolean                        | true                | Show popover when invoking `.popover()`
+
+
+### Methods
+
+Name      | Parameters               | Description
+--------- | ------------------------ | -----------
+toggle    | (options, relatedTarget) | Toggle popover. Related target required first time popover is shown.
+show      | (options, relatedTarget) | Show popover. Related target required first time popover is shown.
+hide      |                          | Hide popover.
+
+
+### Events
+
+Event                  | Description
+---------------------- | ------------------------------
+show.lt.popover        | Fires immediately before popover is shown. Can prevent popover from showing here. Trigger button (if provided) can be accessed under `relatedTarget`.
+shown.lt.popover       | Fires immediately after popover is shown.
+hide.lt.popover        | Fires immediately before popover is hidden. Can prevent popover from hiding here.
+hidden.lt.popover      | Fires immediately after popover is hidden.
+
+
 ### Data-attr
 Add `data-toggle="popover"` and `data-target="#selector"` to a button/element.
 You can add additional options as data-attributes.
@@ -123,7 +152,7 @@ You can add additional options as data-attributes.
   Popover
 </button>
 <div id="myPopover" class="popover">
-  ...
+...
 </div>
 ```
 
@@ -138,39 +167,20 @@ var options = {
   },
   onHide: function(popover, button) {
     console.log('onHide', popover, button);
-  },
+  }
 };
 
-$('button').click(function() {
+$('#myButton').click(function(e) {
   $('#myPopover').popover(options, this); // this == button
 });
 ```
 
 Alternatively, you can use the default options:
 ```js
-$('button').click(function() {
+$('#myButton').click(function(e) {
   $('#myPopover').popover('toggle', this); // this == button
 });
 ```
-
-
-### Options
-
-Name      | Type                           | Default             | Description
---------- | ------------------------------ | ------------------- | -----------
-onShow    | function                       |                     | Callback function to execute every time popover is shown.
-onHide    | function                       |                     | Callback function to execute every time popover is hidden.
-esc       | boolean                        | true                | Close popover when pressing esc key.
-show      | boolean                        | true                | Show on init.
-
-
-### Methods
-
-Name      | Parameters               | Description
---------- | ------------------------ | -----------
-toggle    | (options, relatedTarget) | Toggle popover. Related target required first time popover is shown.
-show      | (options, relatedTarget) | Show popover. Related target required first time popover is shown.
-hide      |                          | Hide popover.
 
 
 ## Examples
@@ -207,20 +217,35 @@ hide      |                          | Hide popover.
 </div>
 ```
 
-#### Popover Close Button
-```html
-<button type="button" class="popover-close" data-toggle="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-```
-
 #### Popover Header
 ```html
 <div class="popover-header">
-  <button type="button" class="popover-close" data-toggle="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <h1 class="popover-title">Popover Title</h1>
 </div>
 ```
 
-#### Popover Header Actions
+#### Popover Header with Linked Title
+```html
+<div class="popover-header">
+  <h1 class="popover-title">
+    <a href="#" class="popover-title-link">Popover Title</a>
+  </h1>
+</div>
+```
+
+#### Popover Header with Close Button
+```html
+<div class="popover-header">
+  <button type="button" class="popover-close" data-toggle="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h1 class="popover-title">
+    <a href="#" class="popover-title-link">Popover Title</a>
+  </h1>
+</div>
+```
+
+#### Popover Header with Right Side Actions
+NOTE: There should be no whitespace after `.popover-header-actions`. See [Fighting the Space Between Inline Block Elements](http://css-tricks.com/fighting-the-space-between-inline-block-elements/).
+
 ```html
 <div class="popover-header">
   <div class="popover-header-actions">
@@ -234,17 +259,9 @@ hide      |                          | Hide popover.
 </div>
 ```
 
-#### Popover Linked Title
-```html
-<div class="popover-header">
-  <button type="button" class="popover-close" data-toggle="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h1 class="popover-title">
-    <a href="#" class="popover-title-link">Popover Title</a>
-  </h1>
-</div>
-```
+#### Popover Footer with Right Side Actions
+NOTE: There should be no whitespace after `.popover-footer-actions`. See [Fighting the Space Between Inline Block Elements](http://css-tricks.com/fighting-the-space-between-inline-block-elements/).
 
-#### Popover Footer Actions
 ```html
 <div class="popover-footer">
   <div class="popover-footer-actions">

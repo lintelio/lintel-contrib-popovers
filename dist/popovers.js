@@ -2,35 +2,36 @@
   'use strict';
 
   var Popover = function(element, options, trigger) {
+    if (!trigger) {
+      throw new Error('Related target required to position popover.');
+    }
     this.$popover = $(element);
     this.$trigger = $(trigger);
     this.options = options || {};
     this.visible = false;
   };
 
-  Popover.prototype.toggle = function(newTrigger) {
+  Popover.prototype.toggle = function(relatedTarget) {
     if (!this.visible) {
-      this.show(newTrigger);
+      this.show(relatedTarget);
     } else {
-      this.hide(this.$trigger[0]);
+      this.hide();
 
-      if (this.$trigger && this.$trigger[0] !== newTrigger) {
-        this.show(newTrigger);
+      if (this.$trigger[0] !== relatedTarget) {
+        this.show(relatedTarget);
       }
     }
   };
 
-  Popover.prototype.show = function(newTrigger) {
+  Popover.prototype.show = function(relatedTarget) {
     if (this.visible) { return; }
-    if (newTrigger) {
-      this.$trigger = $(newTrigger);
-    } else if (!this.$trigger) {
-      throw new Error('Related target required to position popover.');
+    if (relatedTarget) {
+      this.$trigger = $(relatedTarget);
     }
 
     // Show event
     var showEvent = $.Event('show.lt.popover', {
-      relatedTarget: newTrigger
+      relatedTarget: relatedTarget
     });
     this.$popover.trigger(showEvent);
 
@@ -60,9 +61,48 @@
 
     // Shown event
     var shownEvent = $.Event('shown.lt.popover', {
-      relatedTarget: newTrigger
+      relatedTarget: relatedTarget
     });
     this.$popover.trigger(shownEvent);
+  };
+
+  Popover.prototype.hide = function(relatedTarget) {
+    if (!this.visible) { return; }
+
+    // Hide event
+    var hideEvent = $.Event('hide.lt.popover', {
+      relatedTarget: (this.$trigger && this.$trigger[0]) ? this.$trigger[0] : relatedTarget
+    });
+    this.$popover.trigger(hideEvent);
+
+    // Allow event to be prevented
+    if (hideEvent.isDefaultPrevented()) { return; }
+
+    // Hide popover
+    this.visible = false;
+    $(document.body).removeClass('popover-open');
+    this.$popover
+      .removeClass('open')
+      .removeClass('popover-top popover-right popover-bottom popover-left')
+      .attr('aria-hidden', 'true');
+
+    // Unregister close button listeners
+    this.$popover.off('click.close.lt.popover');
+
+    // Unregister escape key
+    this.optionsEscape();
+
+    // Restore focus
+    this.restoreFocus();
+
+    // Callback
+    this.options.onHide.call(this, this.$popover, this.$trigger);
+
+    // Hidden event
+    var hiddenEvent = $.Event('hidden.lt.popover', {
+      relatedTarget: (this.$trigger && this.$trigger[0]) ? this.$trigger[0] : relatedTarget
+    });
+    this.$popover.trigger(hiddenEvent);
   };
 
   Popover.prototype.getOffset = function() {
@@ -129,45 +169,6 @@
     }
   };
 
-  Popover.prototype.hide = function() {
-    if (!this.visible) { return; }
-
-    // Hide event
-    var hideEvent = $.Event('hide.lt.popover', {
-      relatedTarget: this.$trigger[0]
-    });
-    this.$popover.trigger(hideEvent);
-
-    // Allow event to be prevented
-    if (hideEvent.isDefaultPrevented()) { return; }
-
-    // Hide popover
-    this.visible = false;
-    $(document.body).removeClass('popover-open');
-    this.$popover
-      .removeClass('open')
-      .removeClass('popover-top popover-right popover-bottom popover-left')
-      .attr('aria-hidden', 'true');
-
-    // Unregister close button listeners
-    this.$popover.off('click.close.lt.popover');
-
-    // Unregister escape key
-    this.optionsEscape();
-
-    // Restore focus
-    this.restoreFocus();
-
-    // Callback
-    this.options.onHide.call(this, this.$popover, this.$trigger);
-
-    // Hidden event
-    var hiddenEvent = $.Event('hidden.lt.popover', {
-      relatedTarget: this.$trigger[0]
-    });
-    this.$popover.trigger(hiddenEvent);
-  };
-
   // Define jQuery plugin
   function Plugin(method, relatedTarget) {
     return this.each(function() {
@@ -203,15 +204,15 @@
   $.fn.popover = Plugin;
 
   $(document).on('click.lt.popover.data-attr', '[data-toggle="popover"]', function (e) {
-    var $this = $(this);
-    var $target = $($this.attr('data-target')) || $($this.attr('href'));
-    var options = $target.data('lt.popover') ? 'toggle' : $.extend($target.data(), $this.data());
+    var $trigger = $(this);
+    var $target = $($trigger.attr('data-target')) || $($trigger.attr('href'));
+    var options = $target.data('lt.popover') ? 'toggle' : $.extend($target.data(), $trigger.data());
 
-    if ($this.is('a')) {
+    if ($trigger.is('a')) {
       e.preventDefault();
     }
 
-    Plugin.call($target, options, this);
+    Plugin.call($target[0], options, $trigger[0]);
   });
 
 })(jQuery);
