@@ -10,6 +10,7 @@
 // ----
 .popover {
   opacity: 0;
+  outline: none;
   position: absolute;
   min-width: $popover-md-min;
   visibility: hidden;

@@ -1,5 +1,6 @@
 .popover {
   opacity: 0;
+  outline: none;
   position: absolute;
   min-width: 300px;
   visibility: hidden;

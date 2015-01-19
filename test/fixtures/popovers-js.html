@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../../bower_components/lintel/dist/lintel.css">
+    <link rel="stylesheet" href="../../bower_components/lintel-contrib-buttons/dist/buttons.css">
+    <link rel="stylesheet" href="../../dist/popovers.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../dist/popovers.js"></script>
+  </head>
+  <body class="pad">
+
+    <button class="btn" type="button" data-placement="top">
+      Top
+    </button>
+    <button class="btn" type="button" data-placement="right">
+      Right
+    </button>
+    <button class="btn" type="button" data-placement="bottom">
+      Bottom
+    </button>
+    <button class="btn" type="button" data-placement="left">
+      Left
+    </button>
+
+    <div class="popover" id="popover" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="popover-content">
+        <div class="popover-header">
+          <button type="button" class="popover-close" data-toggle="popover-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="popover-title">
+            <a href="#" class="popover-title-link">Title</a>
+          </h1>
+        </div>
+        <div class="popover-body">
+          <div class="form-group">
+            <label class="form-label">
+              Email
+              <input class="form-control" type="text" placeholder="Email">
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">
+              Password
+              <input class="form-control" type="password" placeholder="Password">
+            </label>
+          </div>
+        </div>
+        <div class="popover-footer">
+          <div class="btn-group">
+            <button class="btn" type="button">Cancel</button>
+            <button class="btn btn-primary" type="button">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('body > button').click(function() {
+        $('#popover').popover({
+          onShow: function(popover, button) {
+            // console.log('onShow', popover, button);
+          },
+          onHide: function(popover, button) {
+            // console.log('onHide', popover, button);
+          },
+        }, this);
+      });
+    </script>
+
+  </body>
+</html>

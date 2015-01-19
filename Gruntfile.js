@@ -307,9 +307,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('js-compile', ['copy:js', 'jshint', 'uglify:concat', 'notify:js']);
 
-
-    grunt.registerTask('test', ['clean:dist', 'sass-compile', 'js-compile', 'connect', 'clean:tests', 'webshot', 'nodeunit']);
-
+  grunt.registerTask('test', ['clean:dist', 'sass-compile', 'js-compile', 'connect', 'clean:tests', 'webshot', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['test', 'watch']);
