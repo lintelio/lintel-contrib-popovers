@@ -21,7 +21,11 @@
 
   Popover.prototype.show = function(newTrigger) {
     if (this.visible) { return; }
-    this.$trigger = newTrigger ? $(newTrigger) : null;
+    if (newTrigger) {
+      this.$trigger = $(newTrigger);
+    } else if (!this.$trigger) {
+      throw new Error('Related target required to position popover.');
+    }
 
     // Show event
     var showEvent = $.Event('show.lt.popover', {
