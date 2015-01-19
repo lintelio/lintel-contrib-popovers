@@ -282,8 +282,8 @@
     @include popover-state(
       $bg: $popover-primary-bg,
       $border: $popover-primary-border,
-      $text: $popover-primary-text)
-    ;
+      $text: $popover-primary-text
+    );
   }
 
   // Secondary
@@ -292,7 +292,7 @@
       $bg: $popover-secondary-bg,
       $border: $popover-secondary-border,
       $text: $popover-secondary-text
-    )
+    );
   }
 
   // Error
@@ -301,7 +301,7 @@
       $bg: $popover-error-bg,
       $border: $popover-error-border,
       $text: $popover-error-text
-    )
+    );
   }
 
   // Warning
@@ -310,7 +310,7 @@
       $bg: $popover-warning-bg,
       $border: $popover-warning-border,
       $text: $popover-warning-text
-    )
+    );
   }
 
   // Success
@@ -319,7 +319,7 @@
       $bg: $popover-success-bg,
       $border: $popover-success-border,
       $text: $popover-success-text
-    )
+    );
   }
 
   // Info
@@ -328,7 +328,7 @@
       $bg: $popover-info-bg,
       $border: $popover-info-border,
       $text: $popover-info-text
-    )
+    );
   }
 }
 

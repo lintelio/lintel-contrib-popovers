@@ -1,8 +1,9 @@
 (function($) {
   'use strict';
 
-  var Popover = function(element, options) {
+  var Popover = function(element, options, trigger) {
     this.$popover = $(element);
+    this.$trigger = $(trigger);
     this.options = options || {};
     this.visible = false;
   };
@@ -128,12 +129,12 @@
     }
   };
 
-  Popover.prototype.hide = function(newTrigger) {
+  Popover.prototype.hide = function() {
     if (!this.visible) { return; }
 
     // Hide event
     var hideEvent = $.Event('hide.lt.popover', {
-      relatedTarget: newTrigger
+      relatedTarget: this.$trigger[0]
     });
     this.$popover.trigger(hideEvent);
 
@@ -162,7 +163,7 @@
 
     // Hidden event
     var hiddenEvent = $.Event('hidden.lt.popover', {
-      relatedTarget: newTrigger
+      relatedTarget: this.$trigger[0]
     });
     this.$popover.trigger(hiddenEvent);
   };
@@ -177,7 +178,7 @@
       var data = $popover.data('lt.popover');
 
       if (!data) {
-        data = new Popover(this, settings);
+        data = new Popover(this, settings, relatedTarget);
         $popover.data('lt.popover', data);
       } else {
         data.options = settings;
